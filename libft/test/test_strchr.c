@@ -6,12 +6,12 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 18:57:57 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/24 19:15:41 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "util.h"
+#include "utils.h"
 #include <string.h>
 
 typedef struct s_request
