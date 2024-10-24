@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 14:29:58 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/24 15:03:24 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	test_func(char *name, int (*func_origin)(), int (*func_made)())
 	char	desc[1024];
 
 	error = 0;
-	for (int i = INT_MIN; i <= INT_MAX; i++)
+	for (int i = -256 * 5; i <= 256 * 5; i++)
 	{
 		res = func_origin(i);
 		exp = func_made(i);
