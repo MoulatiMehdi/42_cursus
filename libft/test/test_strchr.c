@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 19:15:41 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/24 20:42:34 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ t_response	is_test_passed(t_request *req)
 	char		*result;
 	char		*expected;
 
-	init_response(res);
-	strcpy(req->desc, res.desc);
+	init_response(&res, req->str);
 	expected = strchr(req->str, req->c);
 	result = ft_strchr(req->str, req->c);
 	strcpy(res.result, result);
