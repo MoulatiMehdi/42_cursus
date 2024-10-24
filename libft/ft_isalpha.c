@@ -6,11 +6,11 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 15:42:18 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/23 15:45:02 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/24 12:15:24 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+int	ft_isalpha(int c)
 {
-	return ((c >= 'a' && c <= 'z') || (c >= 'a' && c <= 'z'));
+	return ((c >= 65 && c <= 90) || (c >= 97 && c <= 122));
 }
