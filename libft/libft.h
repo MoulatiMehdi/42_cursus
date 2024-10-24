@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:27:34 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 20:07:51 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/24 20:20:46 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int				ft_isdigit(int c);
 int				ft_isalnum(int c);
 int				ft_isascii(int c);
 int				ft_isprint(int c);
-int				ft_strcmp(const char *s1, const char *s2);
+int				ft_strncmp(const char *s1, const char *s2, int n);
 int				ft_memcmp(const void *s1, const void *s2, unsigned long n);
 int				ft_atoi(const char *str);
 
@@ -25,9 +25,9 @@ unsigned long	ft_strlen(const char *s);
 unsigned long	ft_strlcpy(char *dst, const char *src, unsigned long dstsize);
 unsigned long	ft_strlcpy(char *dst, const char *src, unsigned long dstsize);
 
-char			*ft_strstr(const char *haystack, const char *needle);
+char			*ft_strnstr(const char *haystack, const char *needle);
 char			*ft_strchr(const char *s, int c);
-char			*ft_strchr(const char *s, int c);
+char			*ft_strrchr(const char *s, int c);
 
 void			*ft_memset(void *b, int c, unsigned long len);
 void			*ft_memcpy(void *dst, const void *src, unsigned long n);
