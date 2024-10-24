@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 20:42:34 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/24 21:24:33 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,29 @@ t_response	is_test_passed(t_request *req)
 	char		*result;
 	char		*expected;
 
-	init_response(&res, req->str);
+	init_response(&res, req->desc);
 	expected = strchr(req->str, req->c);
 	result = ft_strchr(req->str, req->c);
-	strcpy(res.result, result);
-	strcpy(res.expected, expected);
+	strcpy(res.result, result ? result : "(null)");
+	strcpy(res.expected, expected ? expected : "(null)");
 	res.is_pass = result == expected;
+	return (res);
 }
 
 void	test_strchr(void)
 {
-	t_request cases[100] = {
-		{.str = 0, .c = 0, .desc = "Null string"},
+	int	cases_size;
+	int	elem_size;
+
+	t_request cases[] = {
+		{.str = "", .c = 0, .desc = "Null bytes in the empty string"},
+		{.str = "hello world", .c = 32, .desc = "Char at the middle"},
+		{.str = "hello world", .c = 'd', .desc = "Char at the end"},
+		{.str = "hello world", .c = 'h', .desc = "Char at the start"},
+		{.str = "hello world", .c = 0, .desc = "null byte in the string"},
 	};
-	run_test("ft_strchr", cases, is_test_passed, sizeof(cases),
-		sizeof(t_request));
+	cases_size = sizeof(cases);
+	elem_size = sizeof(cases[0]);
+	run_test("ft_strchr", cases, is_test_passed, cases_size / elem_size,
+		elem_size);
 }
