@@ -2,8 +2,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -fsanitize=address -g
 
 
-SRCS=$(wildcard ./srcs/*.c) $(wildcard ./utils/*.c) $(wildcard ../ft_*.c)
-DEPS=./includes/ ../
+SRCS=$(wildcard ./*.c) $(wildcard ~/github/ctest/utils/*.c) $(wildcard ../ft_*.c)
+DEPS=$(wildcard ~/github/ctest/includes/) ../
 OBJS=$(SRCS:.c=.o)
 
 NAME = test
@@ -11,11 +11,11 @@ NAME = test
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) &> /dev/null
 
 %.o : %.c $(DEPS)
 	
-	$(CC) $(CFLAGS) -c $(addprefix -I,$(DEPS)) -o $@ $< 
+	$(CC) $(CFLAGS) -c $(addprefix -I,$(DEPS)) -o $@ $< &> /dev/null 
 clean : 
 	rm -f $(OBJS)
 fclean :  clean 
