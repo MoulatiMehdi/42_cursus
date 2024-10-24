@@ -5,29 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 17:09:04 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 12:23:07 by mmoulati         ###   ########.fr       */
+/*   Created: 2024/10/24 17:27:34 by mmoulati          #+#    #+#             */
+/*   Updated: 2024/10/24 17:33:42 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
-int		ft_strlen(char *s);
-int		ft_memset(void *ptr);
-int		ft_bzero(char *b);
-int		ft_memcpy(void *ptr);
-int		ft_memmove(void *ptr);
-int		ft_strlcpy(char *s);
-int		ft_strlcat(char *s);
-char	ft_toupper(int c);
-char	ft_tolower(int c);
-int		ft_strchr(char *s);
-int		ft_strrchr(char *s);
-int		ft_strncmp(char *s);
-int		ft_memchr(void *ptr);
-int		ft_memcmp(void *ptr);
-int		ft_strnstr(char *s);
-int		ft_atoi(char *str);
+int				toupper(int c);
+int				tolower(int c);
+int				isalpha(int c);
+int				isdigit(int c);
+int				isalnum(int c);
+int				isascii(int c);
+int				isprint(int c);
+int				strcmp(const char *s1, const char *s2);
+int				memcmp(const void *s1, const void *s2, unsigned long n);
+int				atoi(const char *str);
+
+unsigned long	strlen(const char *s);
+unsigned long	strlcpy(char *dst, const char *src, unsigned long dstsize);
+unsigned long	strlcpy(char *dst, const char *src, unsigned long dstsize);
+
+char			*strstr(const char *haystack, const char *needle);
+char			*strchr(const char *s, int c);
+char			*strchr(const char *s, int c);
+
+void			*memset(void *b, int c, unsigned long len);
+void			*memcpy(void *dst, const void *src, unsigned long n);
+void			*memmove(void *dst, const void *src, unsigned long len);
+void			*memchr(const void *s, int c, unsigned long n);
+void			bzero(void *s, unsigned long n);
