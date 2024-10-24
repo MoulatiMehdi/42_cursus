@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 23:26:51 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 18:56:54 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/24 21:35:26 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@ void	test_strchr(void);
 int	main(void)
 {
 	test_strchr();
+	test_strrchr();
 	return (0);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_strchr.c                                      :+:      :+:    :+:   */
+/*   test_strrchr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 21:36:27 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/24 21:35:58 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ static t_response	is_test_passed(t_request *req)
 	char		*expected;
 
 	init_response(&res, req->desc);
-	expected = strchr(req->str, req->c);
-	result = ft_strchr(req->str, req->c);
+	expected = strrchr(req->str, req->c);
+	result = ft_strrchr(req->str, req->c);
 	strcpy(res.result, result ? result : "(null)");
 	strcpy(res.expected, expected ? expected : "(null)");
 	res.is_pass = result == expected;
 	return (res);
 }
 
-void	test_strchr(void)
+void	test_strrchr(void)
 {
 	int	cases_size;
 	int	elem_size;
@@ -52,6 +52,6 @@ void	test_strchr(void)
 	};
 	cases_size = sizeof(cases);
 	elem_size = sizeof(cases[0]);
-	run_test("ft_strchr", cases, is_test_passed, cases_size / elem_size,
+	run_test("ft_strrchr", cases, is_test_passed, cases_size / elem_size,
 		elem_size);
 }
