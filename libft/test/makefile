@@ -11,11 +11,11 @@ NAME = test
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) &> /dev/null
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) 
 
 %.o : %.c $(DEPS)
 	
-	$(CC) $(CFLAGS) -c $(addprefix -I,$(DEPS)) -o $@ $< &> /dev/null 
+	$(CC) $(CFLAGS) -c $(addprefix -I,$(DEPS)) -o $@ $< 
 clean : 
 	rm -f $(OBJS)
 fclean :  clean 
