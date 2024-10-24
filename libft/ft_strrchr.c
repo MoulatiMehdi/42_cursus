@@ -6,11 +6,11 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:15:05 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 21:41:48 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/24 21:44:00 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
 	int	i;
 
