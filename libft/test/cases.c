@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:21:21 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 15:38:22 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:01:56 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_strstr_request	g_strstr_cases[] = {
 	{.s1 = "", .s2 = "Hello world", .desc = "s1 == 0 && s2 != 0"},
 	{.s1 = "hello", .s2 = "hello world", .desc = "s1 < s2"},
 	{.s1 = "hello world", .s2 = "hello", .desc = "s2 < s1 "},
+	{.s1 = "hello world", .s2 = "hello world", .desc = "s2 == s1 "},
 };
 
 const int			strstr_size = sizeof(g_strstr_cases);
