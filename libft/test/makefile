@@ -12,10 +12,10 @@ all : $(NAME)
 
 $(NAME) : $(SRCS) $(DEPS)
 	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(addprefix -I,$(DEPS))
+	rm -rf test.dSYM
 
 fclean :   
 	rm -rf $(NAME)
-	rm -rf test.dSYM
 
 re : fclean all  
 

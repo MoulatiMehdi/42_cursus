@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 21:35:58 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:47:41 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 typedef struct s_request
 {
-	char			*str;
+	char			*s1;
 	int				c;
 	char			*desc;
 }					t_request;
@@ -28,11 +28,20 @@ static t_response	is_test_passed(t_request *req)
 	char		*expected;
 
 	init_response(&res, req->desc);
-	expected = strrchr(req->str, req->c);
-	result = ft_strrchr(req->str, req->c);
-	strcpy(res.result, result ? result : "(null)");
-	strcpy(res.expected, expected ? expected : "(null)");
-	res.is_pass = result == expected;
+	for (int i = -255 * 5; i < 255 * 5; i++)
+	{
+		expected = strrchr(req->s1, i);
+		result = ft_strrchr(req->s1, i);
+		res.is_pass = result == expected;
+		if (!res.is_pass)
+		{
+			sprintf(res.result, "str : '%s' , i : %d",
+				result ? result : "(null)", i);
+			sprintf(res.expected, "str : '%s' , i : %d",
+				expected ? expected : "(null)", i);
+			break ;
+		}
+	}
 	return (res);
 }
 
@@ -42,13 +51,9 @@ void	test_strrchr(void)
 	int	elem_size;
 
 	t_request cases[] = {
-		{.str = "", .c = 0, .desc = "Null bytes in the empty string"},
-		{.str = "hello world", .c = 32, .desc = "Char at the middle"},
-		{.str = "hello world", .c = 'd', .desc = "Char at the end"},
-		{.str = "hello world", .c = 'h', .desc = "Char at the start"},
-		{.str = "hello world", .c = 0, .desc = "null byte in the string"},
-		{.str = "h", .c = 'l', .desc = "one character in string (false)"},
-		{.str = "h", .c = 'h', .desc = "one character in string (true)"},
+		{.s1 = "", .desc = "empty string"},
+		{.s1 = "hello world", .desc = "str = 'Hello World'"},
+		{.s1 = "h", .desc = "str = 'h'"},
 	};
 	cases_size = sizeof(cases);
 	elem_size = sizeof(cases[0]);

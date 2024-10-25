@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 11:41:58 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 14:21:04 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,25 @@ void	test_strncmp(void)
 	int	elem_size;
 
 	t_request cases[] = {
-		{.s1 = "Hello", .s2 = "Hello worlld", .n = 0,
-			"searched length equal 0"},
-		{.s1 = "hello", .s2 = "hello world", .n = 5,
-			.desc = "s2 is long string"},
-		{.s1 = "hello world", .s2 = "hello", .n = 3,
-			.desc = "searched length less that the length of s1"},
-		{.s1 = "hello world", .s2 = "hello", .n = 5,
-			.desc = "searched length is exact the length of the s2"},
+		{.s1 = "", .s2 = "", .n = 1, "s1 == s2 == 0 < len"},
+		{.s1 = "Hello World", .s2 = "", .n = 5, "s2 == 0 < len < s1"},
+		{.s1 = "", .s2 = "Hello world", .n = 1, "s1 == 0 < len <s2 "},
+		{.s1 = "", .s2 = "Hello world", .n = 5, "s1 == 0 <len < s2"},
+		{.s1 = "Hello World", .s2 = "", .n = 100, "s2 == 0 < s1 < len"},
+		{.s1 = "hello", .s2 = "hello world", .n = 0,
+			.desc = "len = 0 < s1 < s2"},
+		{.s1 = "hello", .s2 = "hello world", .n = 3, .desc = "len < s1 < s2"},
+		{.s1 = "hello world", .s2 = "hello", .n = 3, .desc = "len < s2 < s1"},
+		{.s1 = "hello", .s2 = "hello world", .n = 7, .desc = "s1 < len < s2 "},
 		{.s1 = "hello world", .s2 = "hello", .n = 0,
-			.desc = "searched length is 0"},
+			.desc = "len = 0 < s2 < s1"},
+		{.s1 = "hello", .s2 = "hello world", .n = 5, .desc = "s1 == len < s2"},
+		{.s1 = "hello world", .s2 = "hello", .n = 5, .desc = "s2 == len < s1"},
+		{.s1 = "hello", .s2 = "hello world", .n = 11, .desc = "s1 < s2 == len"},
+		{.s1 = "hello world", .s2 = "hello", .n = 11, .desc = "s2 < s1 == len"},
+		{.s1 = "hello", .s2 = "hello world", .n = 100, .desc = "s1 < s2 < len"},
+		{.s1 = "hello world", .s2 = "hello", .n = 100, .desc = "s2 < s1 < len"},
+		{.s1 = "hello world", .s2 = "hello", .n = 7, .desc = "s2 < len < s1 "},
 	};
 	cases_size = sizeof(cases);
 	elem_size = sizeof(cases[0]);
