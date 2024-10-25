@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_strncmp.c                                     :+:      :+:    :+:   */
+/*   test_strlcpy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 16:02:55 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:45:52 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static t_response	is_test_passed(t_strstr_request *req)
 	init_response(&res, req->desc);
 	for (i = 0; i < 2 * len; i++)
 	{
-		expected = strncmp(req->s1, req->s2, i);
-		result = ft_strncmp(req->s1, req->s2, i);
+		expected = strlcpy(req->s1, req->s2, i);
+		result = ft_strlcpy(req->s1, req->s2, i);
 		res.is_pass = result == expected;
 		if (!res.is_pass)
 		{
@@ -43,12 +43,12 @@ static t_response	is_test_passed(t_strstr_request *req)
 	return (res);
 }
 
-void	test_strncmp(void)
+void	test_strlcpy(void)
 {
 	extern int				strstr_size;
 	extern int				strstr_elem;
 	extern t_strstr_request	g_strstr_cases[];
 
-	run_test("ft_strncmp", g_strstr_cases, is_test_passed, strstr_size
+	run_test("ft_strlcpy", g_strstr_cases, is_test_passed, strstr_size
 		/ strstr_elem, strstr_elem);
 }

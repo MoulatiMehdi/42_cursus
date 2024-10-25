@@ -1,5 +1,5 @@
 CC = cc 
-CFLAGS = -Wall -Wextra -fsanitize=address -g
+CFLAGS = -Wall -Wextra -fsanitize=address -g 
 
 
 SRCS=$(wildcard ./*.c) $(wildcard ~/github/ctest/utils/*.c) $(wildcard ../ft_*.c)
@@ -12,10 +12,10 @@ all : $(NAME)
 
 $(NAME) : $(SRCS) $(DEPS)
 	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(addprefix -I,$(DEPS))
-	rm -rf test.dSYM
 
 fclean :   
 	rm -rf $(NAME)
+	rm -rf test.dSYM
 
 re : fclean all  
 
