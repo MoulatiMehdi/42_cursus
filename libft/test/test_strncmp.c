@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_strchr.c                                      :+:      :+:    :+:   */
+/*   test_strncmp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 11:26:28 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 11:41:58 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,45 @@
 typedef struct s_request
 {
 	char			*s1;
-	int				c;
+	char			*s2;
+	unsigned long	n;
 	char			*desc;
 }					t_request;
 
 static t_response	is_test_passed(t_request *req)
 {
 	t_response	res;
-	char		*result;
-	char		*expected;
+	int			result;
+	int			expected;
 
 	init_response(&res, req->desc);
-	expected = strchr(req->s1, req->c);
-	result = ft_strchr(req->s1, req->c);
-	strcpy(res.result, result ? result : "(null)");
-	strcpy(res.expected, expected ? expected : "(null)");
+	expected = strncmp(req->s1, req->s2, req->n);
+	result = ft_strncmp(req->s1, req->s2, req->n);
+	sprintf(res.result, "%d", result);
+	sprintf(res.expected, "%d", expected);
 	res.is_pass = result == expected;
 	return (res);
 }
 
-void	test_strchr(void)
+void	test_strncmp(void)
 {
 	int	cases_size;
 	int	elem_size;
 
 	t_request cases[] = {
-		{.s1 = "", .c = 0, .desc = "Null bytes in the empty string"},
-		{.s1 = "hello world", .c = 32, .desc = "Char at the middle"},
-		{.s1 = "hello world", .c = 'd', .desc = "Char at the end"},
-		{.s1 = "hello world", .c = 'h', .desc = "Char at the start"},
-		{.s1 = "hello world", .c = 0, .desc = "null byte in the string"},
-		{.s1 = "h", .c = 'l', .desc = "one character in string (false)"},
-		{.s1 = "h", .c = 'h', .desc = "one character in string (true)"},
+		{.s1 = "Hello", .s2 = "Hello worlld", .n = 0,
+			"searched length equal 0"},
+		{.s1 = "hello", .s2 = "hello world", .n = 5,
+			.desc = "s2 is long string"},
+		{.s1 = "hello world", .s2 = "hello", .n = 3,
+			.desc = "searched length less that the length of s1"},
+		{.s1 = "hello world", .s2 = "hello", .n = 5,
+			.desc = "searched length is exact the length of the s2"},
+		{.s1 = "hello world", .s2 = "hello", .n = 0,
+			.desc = "searched length is 0"},
 	};
 	cases_size = sizeof(cases);
 	elem_size = sizeof(cases[0]);
-	run_test("ft_strchr", cases, is_test_passed, cases_size / elem_size,
+	run_test("ft_strncmp", cases, is_test_passed, cases_size / elem_size,
 		elem_size);
 }

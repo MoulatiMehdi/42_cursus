@@ -10,16 +10,12 @@ NAME = test
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) 
+$(NAME) : $(SRCS) $(DEPS)
+	$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(addprefix -I,$(DEPS))
 
-%.o : %.c $(DEPS)
-	
-	$(CC) $(CFLAGS) -c $(addprefix -I,$(DEPS)) -o $@ $< 
-clean : 
-	rm -f $(OBJS)
-fclean :  clean 
-	rm -f $(NAME)
+fclean :   
+	rm -rf $(NAME)
+	rm -rf test.dSYM
 
 re : fclean all  
 
