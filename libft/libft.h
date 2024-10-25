@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 17:27:34 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/24 20:31:49 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 16:13:58 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int				ft_atoi(const char *str);
 
 unsigned long	ft_strlen(const char *s);
 unsigned long	ft_strlcpy(char *dst, const char *src, unsigned long dstsize);
-unsigned long	ft_strlcpy(char *dst, const char *src, unsigned long dstsize);
+unsigned long	ft_strlcat(char *dst, const char *src, unsigned long dstsize);
 
 char			*ft_strnstr(const char *haystack, const char *needle,
 					unsigned long len);
