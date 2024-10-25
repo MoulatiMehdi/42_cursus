@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:07:24 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 16:39:09 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:47:50 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ unsigned long	ft_strlcpy(char *dst, const char *src, unsigned long dstsize)
 
 	dst_size = ft_strlen(dst);
 	src_size = ft_strlen(src);
+	if (dst_size == 0 || src_size == 0 || dstsize == 0)
+		return (src_size);
 	if (dstsize > dst_size)
 		dstsize = dst_size;
 	dstsize--;
@@ -29,11 +31,11 @@ unsigned long	ft_strlcpy(char *dst, const char *src, unsigned long dstsize)
 		dst[i] = src[i];
 		i++;
 	}
-	while (i < dstsize)
+	while (i < dst_size)
 	{
 		dst[i] = '\0';
 		i++;
 	}
 	dst[i] = '\0';
-	return (i);
+	return (src_size);
 }
