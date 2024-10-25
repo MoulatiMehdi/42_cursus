@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:21:21 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 16:01:56 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:12:29 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,19 @@ t_strstr_request	g_strstr_cases[] = {
 	{.s1 = "hello world", .s2 = "hello world", .desc = "s2 == s1 "},
 };
 
+t_strstr_request	g_strl_cases[] = {
+	{.s1 = "Hello World", .s2 = "", .desc = "s2 == 0 && s1 != 0"},
+	{.s1 = "", .s2 = "Hello world", .desc = "s1 == 0 && s2 != 0"},
+	{.s1 = "", .s2 = "", .desc = "s1 == s2 == 0 "},
+	{.s1 = "hello", .s2 = "hello world", .desc = "s1 < s2"},
+	{.s1 = "hello world", .s2 = "hello", .desc = "s2 < s1 "},
+	{.s1 = "hello world", .s2 = "hello world", .desc = "s2 == s1 "},
+};
 const int			strstr_size = sizeof(g_strstr_cases);
 const int			strstr_elem = sizeof(g_strstr_cases[0]);
 
 const int			str_size = sizeof(g_str_cases);
 const int			str_elem = sizeof(g_str_cases[0]);
+
+const int			strl_size = sizeof(g_strl_cases);
+const int			strl_elem = sizeof(g_strl_cases[0]);
