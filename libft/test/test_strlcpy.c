@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 13:53:17 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 20:45:57 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 22:23:49 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ static t_response	is_test_passed(t_strstr_request *req)
 	{
 		strcpy(res_dst, req->s2);
 		strcpy(exp_dst, req->s2);
-		expected = strlcpy(res_dst, req->s1, i);
-		result = ft_strlcpy(exp_dst, req->s1, i);
+		expected = strlcpy(exp_dst, req->s1, i);
+		result = ft_strlcpy(res_dst, req->s1, i);
 		res.is_pass = result == expected;
 		if (!res.is_pass)
 		{
@@ -47,9 +47,9 @@ static t_response	is_test_passed(t_strstr_request *req)
 				expected, i);
 			break ;
 		}
-		res.is_pass = (!res_dst[0] && !exp_dst[0]) || strncmp(res_dst, exp_dst,
-				len_dst);
-		if (res.is_pass)
+		res.is_pass = (!res_dst[0] && !exp_dst[0]) || memcmp(res_dst, exp_dst,
+				len_dst) == 0;
+		if (!res.is_pass)
 		{
 			sprintf(res.result, "str : \x1b[31m'%s'\x1b[0m when i = %3lu",
 				res_dst, i);
