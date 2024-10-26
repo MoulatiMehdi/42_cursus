@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:07:24 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 22:31:08 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/25 22:38:54 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ unsigned long	ft_strlcpy(char *dst, const char *src, unsigned long dstsize)
 	unsigned long	i;
 	unsigned long	dst_size;
 	unsigned long	src_size;
-	unsigned long	src_len;
 
 	dst_size = ft_strlen(dst);
 	src_size = ft_strlen(src);
