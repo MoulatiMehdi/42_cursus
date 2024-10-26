@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:07:24 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 21:21:25 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/26 13:36:35 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ unsigned long	ft_strlcat(char *dst, const char *src, unsigned long dstsize)
 		dst[i] = src[i - dst_size];
 		i++;
 	}
-	while (i < dst_size)
-		dst[i++] = '\0';
 	dst[i] = '\0';
 	return (src_size + dstsize + 1);
 }
