@@ -6,7 +6,7 @@
 /*   By: mmoulati <mmoulati@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:21:21 by mmoulati          #+#    #+#             */
-/*   Updated: 2024/10/25 20:12:29 by mmoulati         ###   ########.fr       */
+/*   Updated: 2024/10/26 13:33:04 by mmoulati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_str_request		g_str_cases[] = {
 	{.s1 = "", .desc = "empty string"},
 	{.s1 = "hello world", .desc = "str = 'Hello World'"},
 	{.s1 = "h", .desc = "str = 'h'"},
+	{.s1 = "000000000000", .desc = "str = '0000'"},
 };
 
 t_strstr_request	g_strstr_cases[] = {
